@@ -36,6 +36,7 @@
 		90358EEB248B85830049798C /* libopencv_highgui.4.1.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 90358EE6248B85820049798C /* libopencv_highgui.4.1.2.dylib */; };
 		90358EED248B85830049798C /* libopencv_dnn.4.1.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 90358EE7248B85820049798C /* libopencv_dnn.4.1.2.dylib */; };
 		90358EEF248B85830049798C /* libopencv_core.4.1.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 90358EE8248B85820049798C /* libopencv_core.4.1.2.dylib */; };
+		90358EF7248BDFD60049798C /* GMM.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 90358EF5248BDFD60049798C /* GMM.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -73,6 +74,8 @@
 		90358EE7248B85820049798C /* libopencv_dnn.4.1.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_dnn.4.1.2.dylib; path = ../../../../usr/local/lib/libopencv_dnn.4.1.2.dylib; sourceTree = "<group>"; };
 		90358EE8248B85820049798C /* libopencv_core.4.1.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_core.4.1.2.dylib; path = ../../../../usr/local/lib/libopencv_core.4.1.2.dylib; sourceTree = "<group>"; };
 		90358EF1248B86D80049798C /* GrabCut.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GrabCut.entitlements; sourceTree = "<group>"; };
+		90358EF5248BDFD60049798C /* GMM.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GMM.cpp; sourceTree = "<group>"; };
+		90358EF6248BDFD60049798C /* GMM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GMM.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +136,8 @@
 			isa = PBXGroup;
 			children = (
 				90358EF1248B86D80049798C /* GrabCut.entitlements */,
+				90358EF5248BDFD60049798C /* GMM.cpp */,
+				90358EF6248BDFD60049798C /* GMM.h */,
 				90358EAA248B82CE0049798C /* main.cpp */,
 				90358EB4248B82DC0049798C /* GCApplication.cpp */,
 				90358EB3248B82DC0049798C /* GCApplication.h */,
@@ -222,6 +227,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				90358EB5248B82DC0049798C /* GrabCut.cpp in Sources */,
+				90358EF7248BDFD60049798C /* GMM.cpp in Sources */,
 				90358EB6248B82DC0049798C /* GCApplication.cpp in Sources */,
 				90358EAB248B82CE0049798C /* main.cpp in Sources */,
 			);

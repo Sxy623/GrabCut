@@ -10,7 +10,7 @@ using namespace cv;
 const Scalar BLUE = Scalar(255, 0, 0);          // Background
 const Scalar GREEN = Scalar(0, 255, 0);         // Foreground
 const Scalar LIGHTBLUE = Scalar(255, 255, 160); // ProbBackground
-const Scalar PINK = Scalar(230, 130, 255);      // ProbBackground
+const Scalar PINK = Scalar(230, 130, 255);      // ProbForeground
 const Scalar RED = Scalar(0, 0, 255);           // Color of Rectangle
 
 const int BGD_KEY = EVENT_FLAG_CTRLKEY;       // When press "CTRL" key,the value of flags return.
@@ -19,7 +19,7 @@ const int FGD_KEY = EVENT_FLAG_SHIFTKEY;      // When press "SHIFT" key, the val
 // Copy the value of comMask to binMask
 static void getBinMask(const Mat& comMask, Mat& binMask) {
 	if (comMask.empty() || comMask.type() != CV_8UC1)
-		CV_Error(cv::Error::StsBadArg, "comMask is empty or has incorrect type (not CV_8UC1)");
+		CV_Error(Error::StsBadArg, "comMask is empty or has incorrect type (not CV_8UC1)");
 	if (binMask.empty() || binMask.rows != comMask.rows || binMask.cols != comMask.cols)
 		binMask.create(comMask.size(), CV_8UC1);
 	binMask = comMask & 1;

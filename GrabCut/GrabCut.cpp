@@ -2,23 +2,24 @@
 
 GrabCut2D::~GrabCut2D(void) {}
 
-void GrabCut2D::GrabCut(cv::InputArray _img, cv::InputOutputArray _mask, cv::Rect rect, cv::InputOutputArray _bgdModel, cv::InputOutputArray _fgdModel, int iterCount, int mode) {
+void GrabCut2D::GrabCut(InputArray _img, InputOutputArray _mask, Rect rect, InputOutputArray _bgdModel, InputOutputArray _fgdModel, int iterCount, int mode) {
+    
     std::cout << "Execute GrabCut Function: Please finish the code here!" << std::endl;
 
 //一.参数解释：
 	//输入：
-    //cv::InputArray _img,     :输入的color图像(类型-cv:Mat)
-    //cv::Rect rect            :在图像上画的矩形框（类型-cv:Rect) 
+    //InputArray _img,     :输入的color图像(类型-cv:Mat)
+    //Rect rect            :在图像上画的矩形框（类型-cv:Rect)
   	//int iterCount :           :每次分割的迭代次数（类型-int)
 
 
 	//中间变量
-	//cv::InputOutputArray _bgdModel ：   背景模型（推荐GMM)（类型-13*n（组件个数）个double类型的自定义数据结构，可以为cv:Mat，或者Vector/List/数组等）
-	//cv::InputOutputArray _fgdModel :    前景模型（推荐GMM) （类型-13*n（组件个数）个double类型的自定义数据结构，可以为cv:Mat，或者Vector/List/数组等）
+	//InputOutputArray _bgdModel ：   背景模型（推荐GMM)（类型-13*n（组件个数）个double类型的自定义数据结构，可以为cv:Mat，或者Vector/List/数组等）
+	//InputOutputArray _fgdModel :    前景模型（推荐GMM) （类型-13*n（组件个数）个double类型的自定义数据结构，可以为cv:Mat，或者Vector/List/数组等）
 
 
 	//输出:
-	//cv::InputOutputArray _mask  : 输出的分割结果 (类型： cv::Mat)
+	//InputOutputArray _mask  : 输出的分割结果 (类型： Mat)
 
 //二. 伪代码流程：
 	//1.Load Input Image: 加载输入颜色图像;
