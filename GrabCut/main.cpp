@@ -56,7 +56,7 @@ int main() {
     gcapp.setImageAndWinName(image, winName);
     gcapp.showImage();
 
-    for(;;) {
+    for (;;) {
         int c = waitKey(0);
         switch((char)c)
         {

@@ -1,8 +1,8 @@
 #pragma once
 #include <iostream>
-#include "GrabCut.h"
 #include "opencv2/highgui/highgui.hpp"
 #include "opencv2/imgproc/imgproc.hpp"
+#include "GrabCut.h"
 
 using namespace std;
 using namespace cv;

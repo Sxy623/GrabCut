@@ -1,6 +1,6 @@
 #include "GMM.h"
 
-// 构造函数，图片的背景和前景分别对应一个混合高斯模型
+// 构造函数，图片的背景和前景分别对应一个高斯混合模型
 GMM::GMM(Mat& _model) {
     // 高斯分布个数：componentsCount
     // 每个高斯分布的参数个数：modelSize
@@ -11,7 +11,7 @@ GMM::GMM(Mat& _model) {
         _model.setTo(Scalar(0));
     }
     else if ((_model.type() != CV_64FC1) || (_model.rows != 1) || (_model.cols != modelSize * componentsCount))
-        CV_Error(Error::StsBadArg, "_model must have CV_64FC1 type, rows == 1 and cols == 13*componentsCount" );
+        CV_Error(Error::StsBadArg, "_model must have CV_64FC1 type, rows == 1 and cols == 13*componentsCount");
     
     model = _model;
     
@@ -26,7 +26,7 @@ GMM::GMM(Mat& _model) {
             calcInverseCovAndDeterm(ci);
 }
   
-// 计算单个像素（由color=（B,G,R）三维double型向量来表示）属于这个混合高斯模型的概率
+// 计算单个像素（由color=（B,G,R）三维double型向量来表示）属于这个高斯混合模型的概率
 double GMM::operator()(const Vec3d color) const {
     double res = 0;
     for (int ci = 0; ci < componentsCount; ci++)
@@ -59,7 +59,7 @@ int GMM::whichComponent(const Vec3d color) const {
   
     for (int ci = 0; ci < componentsCount; ci++) {
         double p = (*this)(ci, color);
-        if(p > max) {
+        if (p > max) {
             k = ci;
             max = p;
         }
@@ -69,7 +69,7 @@ int GMM::whichComponent(const Vec3d color) const {
   
 // 参数学习前的初始化
 void GMM::initLearning() {
-    for(int ci = 0; ci < componentsCount; ci++) {
+    for (int ci = 0; ci < componentsCount; ci++) {
         sums[ci][0] = sums[ci][1] = sums[ci][2] = 0;
         prods[ci][0][0] = prods[ci][0][1] = prods[ci][0][2] = 0;
         prods[ci][1][0] = prods[ci][1][1] = prods[ci][1][2] = 0;
@@ -111,7 +111,7 @@ void GMM::endLearning() {
   
             // 如果行列式小于等于0，为对角线元素增加白噪声，避免退化
             double dtrm = c[0]*(c[4]*c[8]-c[5]*c[7]) - c[1]*(c[3]*c[8]-c[5]*c[6]) + c[2]*(c[3]*c[7]-c[4]*c[6]);
-            if(dtrm <= std::numeric_limits<double>::epsilon()) {
+            if (dtrm <= std::numeric_limits<double>::epsilon()) {
                 c[0] += variance;
                 c[4] += variance;
                 c[8] += variance;
@@ -125,7 +125,7 @@ void GMM::endLearning() {
   
 // 计算第ci个高斯分布的协方差矩阵的逆和行列式
 void GMM::calcInverseCovAndDeterm(int ci) {
-    if(coefs[ci] > 0) {
+    if (coefs[ci] > 0) {
         // 获得第ci个高斯分布协方差的起始指针
         double *c = cov + 9 * ci;
         double dtrm = covDeterms[ci] = c[0]*(c[4]*c[8]-c[5]*c[7]) - c[1]*(c[3]*c[8]-c[5]*c[6]) + c[2]*(c[3]*c[7]-c[4]*c[6]);
@@ -143,4 +143,4 @@ void GMM::calcInverseCovAndDeterm(int ci) {
         inverseCovs[ci][1][2] = -(c[0]*c[5] - c[2]*c[3]) / dtrm;
         inverseCovs[ci][2][2] =  (c[0]*c[4] - c[1]*c[3]) / dtrm;
     }
-}  
+}

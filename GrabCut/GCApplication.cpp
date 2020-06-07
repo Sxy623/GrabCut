@@ -42,13 +42,13 @@ void GCApplication::showImage() const {
 
 	vector<Point>::const_iterator it;
 	// Using four different colors show the point which have been selected
-	for(it = bgdPxls.begin(); it != bgdPxls.end(); ++it)
+	for (it = bgdPxls.begin(); it != bgdPxls.end(); ++it)
 		circle(res, *it, radius, BLUE, thickness);
-	for(it = fgdPxls.begin(); it != fgdPxls.end(); ++it)
+	for (it = fgdPxls.begin(); it != fgdPxls.end(); ++it)
 		circle(res, *it, radius, GREEN, thickness);
-	for(it = prBgdPxls.begin(); it != prBgdPxls.end(); ++it)
+	for (it = prBgdPxls.begin(); it != prBgdPxls.end(); ++it)
 		circle(res, *it, radius, LIGHTBLUE, thickness);
-	for(it = prFgdPxls.begin(); it != prFgdPxls.end(); ++it)
+	for (it = prFgdPxls.begin(); it != prFgdPxls.end(); ++it)
 		circle(res, *it, radius, PINK, thickness);
 
 	// Draw the rectangle
