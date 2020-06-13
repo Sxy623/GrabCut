@@ -22,6 +22,7 @@ static void help() {
         "\tESC - quit the program\n"
         "\tr - restore the original image\n"
         "\tn - next iteration\n"
+        "\tb - board matting\n"
         "\n"
         "\tleft mouse button - set rectangle\n"
         "\n"
@@ -40,7 +41,7 @@ static void on_mouse(int event, int x, int y, int flags, void* param) {
 }
 
 int main() {
-    string filename = "/Users/sxy/Downloads/profile/profile.png";
+    string filename = "/Users/sxy/Desktop/flower1.jpg";
     Mat image = imread(filename, 1);
     if (image.empty()) {
         cout << "\n , couldn't read image filename " << filename << endl;
@@ -60,25 +61,31 @@ int main() {
         int c = waitKey(0);
         switch((char)c)
         {
-        case '\x1b':
-            cout << "Exiting ..." << endl;
-            goto exit_main;
-        case 'r':
-            cout << endl;
-            gcapp.reset();
-            gcapp.showImage();
-            break;
-        case 'n':
-            int iterCount = gcapp.getIterCount();
-            cout << "<" << iterCount << "... ";
-            int newIterCount = gcapp.nextIter();
-            if (newIterCount > iterCount) {
+            case '\x1b':
+                cout << "Exiting ..." << endl;
+                goto exit_main;
+            case 'r':
+                cout << endl;
+                gcapp.reset();
                 gcapp.showImage();
-                cout << iterCount << ">" << endl;
+                break;
+            case 'n':
+            {
+                int iterCount = gcapp.getIterCount();
+                cout << "<" << iterCount << "... ";
+                int newIterCount = gcapp.nextIter();
+                if (newIterCount > iterCount) {
+                    gcapp.showImage();
+                    cout << iterCount << ">" << endl;
+                }
+                else
+                    cout << "rect must be determined>" << endl;
             }
-            else
-                cout << "rect must be determined>" << endl;
-            break;
+                break;
+            case 'b':
+                cout << "Border Matting! ..." << endl;
+                gcapp.boardMatting();
+                break;
         }
     }
 

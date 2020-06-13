@@ -190,23 +190,23 @@ void GrabCut2D::constructGCGraph(const Mat& img, const Mat& mask, const GMM& bgd
             int vtxIdx = graph.addVtx();  // 返回顶点在图中的索引
             Vec3d color = img.at<Vec3b>(p);
 
-            double fromSource, toSink;
+            double fromSource, toTarget;
             if (mask.at<uchar>(p) == GC_PR_BGD || mask.at<uchar>(p) == GC_PR_FGD) {
                 fromSource = -log(bgdGMM(color));
-                toSink = -log(fgdGMM(color));
+                toTarget = -log(fgdGMM(color));
             }
             else if (mask.at<uchar>(p) == GC_BGD) {
-                // 对于确定为背景的像素点，它与Source点的连接为0，与Sink点的连接为lambda
+                // 对于确定为背景的像素点，它与Source点的连接为0，与Target点的连接为lambda
                 fromSource = 0;
-                toSink = lambda;
+                toTarget = lambda;
             }
             else {  // GC_FGD
                 fromSource = lambda;
-                toSink = 0;
+                toTarget = 0;
             }
             
             // 设置该顶点分别与Source点和Sink点的连接权值
-            graph.addTermWeights(vtxIdx, fromSource, toSink);
+            graph.addTermWeights(vtxIdx, fromSource, toTarget);
 
             // 计算两个邻域顶点之间连接的权值
             if (p.x > 0) {

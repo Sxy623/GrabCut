@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		90067CC7248E925800D4853D /* BorderMatting.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 90358EF8248D4CA10049798C /* BorderMatting.cpp */; };
 		90358EAB248B82CE0049798C /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 90358EAA248B82CE0049798C /* main.cpp */; };
 		90358EB5248B82DC0049798C /* GrabCut.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 90358EB2248B82DC0049798C /* GrabCut.cpp */; };
 		90358EB6248B82DC0049798C /* GCApplication.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 90358EB4248B82DC0049798C /* GCApplication.cpp */; };
@@ -76,6 +77,8 @@
 		90358EF1248B86D80049798C /* GrabCut.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GrabCut.entitlements; sourceTree = "<group>"; };
 		90358EF5248BDFD60049798C /* GMM.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GMM.cpp; sourceTree = "<group>"; };
 		90358EF6248BDFD60049798C /* GMM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GMM.h; sourceTree = "<group>"; };
+		90358EF8248D4CA10049798C /* BorderMatting.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BorderMatting.cpp; sourceTree = "<group>"; };
+		90358EF9248D4CA10049798C /* BorderMatting.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BorderMatting.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +146,8 @@
 				90358EB3248B82DC0049798C /* GCApplication.h */,
 				90358EB2248B82DC0049798C /* GrabCut.cpp */,
 				90358EB1248B82DC0049798C /* GrabCut.h */,
+				90358EF8248D4CA10049798C /* BorderMatting.cpp */,
+				90358EF9248D4CA10049798C /* BorderMatting.h */,
 			);
 			path = GrabCut;
 			sourceTree = "<group>";
@@ -227,6 +232,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				90358EB5248B82DC0049798C /* GrabCut.cpp in Sources */,
+				90067CC7248E925800D4853D /* BorderMatting.cpp in Sources */,
 				90358EF7248BDFD60049798C /* GMM.cpp in Sources */,
 				90358EB6248B82DC0049798C /* GCApplication.cpp in Sources */,
 				90358EAB248B82CE0049798C /* main.cpp in Sources */,

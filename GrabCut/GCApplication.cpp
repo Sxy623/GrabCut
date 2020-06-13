@@ -181,3 +181,17 @@ int GCApplication::nextIter() {
     
     return iterCount;
 }
+
+void GCApplication::boardMatting() {
+//    Mat rst = Mat((*image).size(), (*image).type());
+//    (*image).copyTo(rst);
+//    for (int i = 0; i<rst.rows; i++)
+//        for (int j = 0; j < rst.cols; j++)
+//        {
+//            if (mask.at<uchar>(i, j) == 0)
+//                rst.at<Vec3b>(i, j) = Vec3b(255, 255, 255);
+//        }
+//    bm.Initialize(*image, mask);
+//    bm.Run();
+    bm.run(*image, mask);
+}

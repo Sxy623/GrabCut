@@ -3,6 +3,7 @@
 #include "opencv2/highgui/highgui.hpp"
 #include "opencv2/imgproc/imgproc.hpp"
 #include "GrabCut.h"
+#include "BorderMatting.h"
 
 using namespace std;
 using namespace cv;
@@ -37,6 +38,7 @@ public:
 	void mouseClick(int event, int x, int y, int flags, void* param);
 	int nextIter();
 	int getIterCount() const { return iterCount; }
+    void boardMatting();
 private:
 	void setRectInMask();
 	void setLblsInMask(int flags, Point p, bool isPr);
@@ -53,6 +55,7 @@ private:
 	vector<Point> fgdPxls, bgdPxls, prFgdPxls, prBgdPxls;
 	int iterCount;
 	GrabCut2D gc;
+    BorderMatting bm;
 };
 
 

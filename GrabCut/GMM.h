@@ -20,9 +20,9 @@ public:
 private:
     void calcInverseCovAndDeterm(int ci);
     Mat model;
-    double* coefs;
-    double* mean;
-    double* cov;
+    double* coefs;  // 权重
+    double* mean;   // 均值
+    double* cov;    // 协方差
   
     double inverseCovs[componentsCount][3][3];  // 协方差的逆矩阵
     double covDeterms[componentsCount];         // 协方差的行列式
