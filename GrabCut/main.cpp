@@ -7,6 +7,7 @@
 //
 
 #include <iostream>
+#include <ctime>
 #include "GCApplication.h"
 
 using namespace std;
@@ -22,7 +23,7 @@ static void help() {
         "\tESC - quit the program\n"
         "\tr - restore the original image\n"
         "\tn - next iteration\n"
-        "\tb - board matting\n"
+        "\tb - border matting\n"
         "\n"
         "\tleft mouse button - set rectangle\n"
         "\n"
@@ -40,8 +41,12 @@ static void on_mouse(int event, int x, int y, int flags, void* param) {
     gcapp.mouseClick(event, x, y, flags, param);
 }
 
-int main() {
-    string filename = "/Users/sxy/Desktop/flower1.jpg";
+int main(int argc, const char* argv[]) {
+    if (argc < 2) {
+        cout << "Error! Format: ./GrabCut <image-path>" << endl;
+    }
+    
+    string filename = argv[1];
     Mat image = imread(filename, 1);
     if (image.empty()) {
         cout << "\n , couldn't read image filename " << filename << endl;
@@ -71,6 +76,7 @@ int main() {
                 break;
             case 'n':
             {
+                clock_t start = clock();
                 int iterCount = gcapp.getIterCount();
                 cout << "<" << iterCount << "... ";
                 int newIterCount = gcapp.nextIter();
@@ -80,6 +86,8 @@ int main() {
                 }
                 else
                     cout << "rect must be determined>" << endl;
+                clock_t end = clock();
+                cout << "Run time: " << (double)(end - start) / CLOCKS_PER_SEC << "s" << endl;
             }
                 break;
             case 'b':
